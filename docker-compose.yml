@@ -1,0 +1,13 @@
+services:
+  reactnative:
+    build: .
+    container_name: reactnative-dev
+    volumes:
+      - ./app:/app
+    ports:
+      - "8081:8081" # Metro bundler
+    environment:
+      - ANDROID_SDK_ROOT=/opt/android-sdk
+    privileged: true
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb" # For USB device passthrough
